@@ -96,8 +96,8 @@ def equalize_histogram_color(img):
 def main():
 
 	#Path to the videos
-	vPath1 = "../left.mp4"
-	vPath2 = "../right.mp4"
+	vPath1 = "../../../left.mp4"
+	vPath2 = "../../../right.mp4"
 
 	#Path to the Images
 	iPath1 = ""
@@ -107,28 +107,28 @@ def main():
 	cap1 = cv2.VideoCapture(vPath1)
 	cap2 = cv2.VideoCapture(vPath2)
 
-	#while True:
-		#ret1, frame1 = cap1.read()
-		#ret1, frame2 = cap2.read()
+	while True:
+		ret1, frame1 = cap1.read()
+		ret1, frame2 = cap2.read()
 
-		#frame1 = imutils.resize(frame1, width=900)
-		#frame1 = imutils.rotate(frame1, 180)
-		#frame2 = imutils.resize(frame2, width=900)
+		frame1 = imutils.resize(frame1, width=900)
+		frame1 = imutils.rotate(frame1, 180)
+		frame2 = imutils.resize(frame2, width=900)
 
-		#cv2.imshow('frame1', frame1)
-		#cv2.imshow('frame2', frame2)
+		cv2.imshow('frame1', frame1)
+		cv2.imshow('frame2', frame2)
 
 		#frame1 = equalize_histogram_color(frame1)
 		#frame2 = equalize_histogram_color(frame2)
 
-		#M =  get_sift_homography(frame1, frame2)
+		M =  get_sift_homography(frame1, frame2)
 
-		#result_image = get_stitched_image(frame1, frame2, M)
+		result_image = get_stitched_image(frame1, frame2, M)
 
-		#cv2.imshow ('Result', result_image)
+		cv2.imshow ('Result', result_image)
 
-		#if cv2.waitKey(1) & 0xFF == ord('q'):
-			#break
+		if cv2.waitKey(1) & 0xFF == ord('q'):
+			break
 
 	# Get input set of images
 	#img1 = cv2.imread(sys.argv[1])
