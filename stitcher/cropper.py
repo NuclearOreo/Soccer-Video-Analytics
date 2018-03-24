@@ -31,10 +31,13 @@ for image in images:
 
     image_path = os.path.join(dir_path, image)
     frame = cv2.imread(image_path)
+    new_name = image[8:]
 
-    crop_img = frame[500:1750, 80:6000]
+    crop_img = frame[300:1890, 80:6000]
 
     cv2.imshow('video',crop_img)
+    cv2.imwrite(new_name,crop_img)
+
     if (cv2.waitKey(1) & 0xFF) == ord('q'): # Hit `q` to exit
         break
 

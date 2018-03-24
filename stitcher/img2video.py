@@ -11,7 +11,7 @@ ap.add_argument("-o", "--output", required=False, default='output.mp4', help="ou
 args = vars(ap.parse_args())
 
 # Arguments
-dir_path = 'results'
+dir_path = 'cropped'
 ext = args['extension']
 output = args['output']
 
@@ -28,10 +28,10 @@ height, width, channels = frame.shape
 
 # Define the codec and create VideoWriter object
 fourcc = cv2.VideoWriter_fourcc(*'mp4v') # Be sure to use lower case
-out = cv2.VideoWriter(output, fourcc, 20.0, (width, height))
+out = cv2.VideoWriter(output, fourcc, 30.0, (width, height))
 
-images = sorted(images)
-print(images)
+images = sorted(images,key=lambda x: int(os.path.splitext(x)[0]))
+
 
 for image in images:
 
