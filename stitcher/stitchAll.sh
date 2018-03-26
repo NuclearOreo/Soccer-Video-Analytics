@@ -1,4 +1,4 @@
-for i in {0..1026};
+for i in {0..596};
 do
-  ./stitching leftFrames/leftFrame$i.jpg rightFrames/rightFrame$i.jpg --Output stitched$i.jpg;
+  ./stitching ../extractFrames/left/leftFrame$i.jpg ../extractFrames/right/rightFrame$i.jpg --Output output/stitched$i.jpg --d3;
 done

@@ -55,7 +55,7 @@ void run()
         }
 
         // show stabilized frame
-        if (!quietMode)
+        if (false)
         {
             imshow("stabilizedFrame", stabilizedFrame);
             char key = static_cast<char>(waitKey(3));
