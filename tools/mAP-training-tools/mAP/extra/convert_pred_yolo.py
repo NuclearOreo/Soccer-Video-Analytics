@@ -71,7 +71,7 @@ for tmp_file in txt_list:
   # 3. move old file (YOLO format) to backup
   os.rename(tmp_file, "backup/" + tmp_file)
   # 4. create new file (VOC format)
-  with open(tmp_file, "a") as new_f:
+  with open(tmp_file, "r") as new_f:
     for line in content:
       ## split a line by spaces.
       ## "c" stands for center and "n" stands for normalized
@@ -79,5 +79,5 @@ for tmp_file in txt_list:
       obj_name = obj_list[int(obj_id)]
       left, top, right, bottom = convert_yolo_coordinates_to_voc(x_c_n, y_c_n, width_n, height_n, img_width, img_height)
       #print(obj_name + " " + str(conf) + " " + str(left) + " " + str(top) + " " + str(right) + " " + str(bottom))
-      new_f.write(obj_name + " " + str(conf) + " " str(left) + " " + str(top) + " " + str(right) + " " + str(bottom) + '\n')
+      new_f.write(obj_name + " " + str(conf) + " " + str(left) + " " + str(top) + " " + str(right) + " " + str(bottom) + '\n')
 print("Conversion completed!")

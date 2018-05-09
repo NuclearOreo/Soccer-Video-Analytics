@@ -1,4 +1,3 @@
-bed
 person
 pictureframe
 shirt
