@@ -6,7 +6,7 @@ import operator
 import sys
 import argparse
 
-MINOVERLAP = 0.5 # default value (defined in the PASCAL VOC2012 challenge)
+MINOVERLAP = 0.05 # default value (defined in the PASCAL VOC2012 challenge)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-na', '--no-animation', help="no animation is shown.", action="store_true")
@@ -28,7 +28,7 @@ if args.set_class_iou is not None:
 
 # if there are no images then no animation can be shown
 img_path = 'images'
-if os.path.exists(img_path): 
+if os.path.exists(img_path):
   for dirpath, dirnames, files in os.walk(img_path):
     if not files:
       # no image files found
@@ -179,7 +179,7 @@ def draw_plot_func(dictionary, n_classes, window_title, plot_title, x_label, out
   sorted_dic_by_value = sorted(dictionary.items(), key=operator.itemgetter(1))
   # unpacking the list of tuples into two lists
   sorted_keys, sorted_values = zip(*sorted_dic_by_value)
-  # 
+  #
   if true_p_bar != "":
     """
      Special case to draw in (green=true predictions) & (red=false predictions)
@@ -239,7 +239,7 @@ def draw_plot_func(dictionary, n_classes, window_title, plot_title, x_label, out
   dpi = fig.dpi
   height_pt = n_classes * (tick_font_size * 1.4) # 1.4 (some spacing)
   height_in = height_pt / dpi
-  # compute the required figure height 
+  # compute the required figure height
   top_margin = 0.15    # in percentage of the figure height
   bottom_margin = 0.05 # in percentage of the figure height
   figure_height = height_in / (1 - top_margin - bottom_margin)
