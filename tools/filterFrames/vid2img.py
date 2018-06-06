@@ -1,5 +1,15 @@
 import cv2
-vidcap = cv2.VideoCapture('ussi2.mp4')
+import argparse
+import os
+
+if not os.path.exists('frames'):
+    os.makedirs('frames')
+
+parser = argparse.ArgumentParser(description='Path to video')
+parser.add_argument('path')
+args = parser.parse_args()
+
+vidcap = cv2.VideoCapture(args.path)
 success,image = vidcap.read()
 count = 0
 success = True
