@@ -13,7 +13,7 @@ filepath = args.path
 
 with open(filepath) as fp:
    line = fp.readline()
-   count = 0
+   count = 1
    found = 0
 
    file = open("splits/"+str(count) + ".txt","w")
